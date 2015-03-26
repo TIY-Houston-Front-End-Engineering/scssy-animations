@@ -78,3 +78,107 @@ img {max-width:100%;}
 body {
     transition: opacity .25s ease;
 }
+
+.cards {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    > * {
+        position: relative;
+        background-color: #ccc;
+        &:after {
+            content: "";
+            display: block;
+            padding-top:100%;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        margin-bottom: 1.5rem;
+        span {
+            position: absolute;
+            top:50%;
+            width: 100%;
+            display: block;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+    }
+}
+
+/**
+ * defining the animations
+ */
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeDown {
+    0% { opacity: 0; transform: translateY(-1.5rem); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(1.5rem); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flipY {
+    0% { opacity: 0; transform: rotateX(180deg); }
+    100% { opacity: 1; transform: rotateX(0deg); }
+}
+
+@keyframes flipX {
+    0% { opacity: 0; transform: rotateY(180deg); }
+    100% { opacity: 1; transform: rotateY(0deg); }
+}
+
+@keyframes flipDiag {
+    0% { opacity: 0; transform: rotateX(180deg) rotateY(180deg); }
+    100% { opacity: 1; transform: rotateX(0deg) rotateY(0deg); }
+}
+
+@keyframes flipBouncy {
+    0% { opacity: 0; transform: rotateX(180deg) rotateY(180deg); }
+    // 40% { opacity: 1; transform: rotateX(40deg) rotateY(80deg); }
+    // 70% { opacity: 1; transform: rotateX(-60deg) rotateY(-60deg); }
+    100% { opacity: 1; transform: rotateX(0deg) rotateY(0deg); }
+}
+
+
+
+/**
+ * for testing/displaying the animations
+ */
+
+.fadeIn:hover {
+    perspective: 300px;
+    animation: fadeIn 0.5s ease both;
+}
+.fadeDown:hover {
+    perspective: 300px;
+    animation: fadeDown 0.5s ease both;
+}
+.fadeUp:hover {
+    perspective: 300px;
+    animation: fadeUp 0.5s ease both;
+}
+
+.flipY:hover {
+    perspective: 300px;
+    animation: flipY 0.5s ease both;
+}
+.flipX:hover {
+    perspective: 300px;
+    animation: flipX 0.5s ease both;
+}
+
+.flipDiag:hover {
+    perspective: 300px;
+    animation: flipDiag 1s ease both;
+}
+.flipBouncy:hover {
+    perspective: 300px;
+    animation: flipBouncy 1s cubic-bezier(.69,1.62,.54,.35) both;
+}
